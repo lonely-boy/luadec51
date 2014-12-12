@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -20,12 +20,14 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -50,7 +52,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\luadec;$(SolutionDir)..\..\lua\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\luadec;$(LUA_ROOT)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -66,7 +68,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\..\..\..\luadec;$(SolutionDir)\..\..\..\lua\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\..\..\luadec;$(LUA_ROOT)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -83,36 +85,36 @@
     <ClCompile Include="..\..\..\luadec\proto.c" />
     <ClCompile Include="..\..\..\luadec\StringBuffer.c" />
     <ClCompile Include="..\..\..\luadec\structs.c" />
-    <ClCompile Include="..\..\..\lua\src\lapi.c" />
-    <ClCompile Include="..\..\..\lua\src\lauxlib.c" />
-    <ClCompile Include="..\..\..\lua\src\lbaselib.c" />
-    <ClCompile Include="..\..\..\lua\src\lcode.c" />
-    <ClCompile Include="..\..\..\lua\src\ldblib.c" />
-    <ClCompile Include="..\..\..\lua\src\ldebug.c" />
-    <ClCompile Include="..\..\..\lua\src\ldo.c" />
-    <ClCompile Include="..\..\..\lua\src\ldump.c" />
-    <ClCompile Include="..\..\..\lua\src\lfunc.c" />
-    <ClCompile Include="..\..\..\lua\src\lgc.c" />
-    <ClCompile Include="..\..\..\lua\src\linit.c" />
-    <ClCompile Include="..\..\..\lua\src\liolib.c" />
-    <ClCompile Include="..\..\..\lua\src\llex.c" />
-    <ClCompile Include="..\..\..\lua\src\lmathlib.c" />
-    <ClCompile Include="..\..\..\lua\src\lmem.c" />
-    <ClCompile Include="..\..\..\lua\src\loadlib.c" />
-    <ClCompile Include="..\..\..\lua\src\lobject.c" />
-    <ClCompile Include="..\..\..\lua\src\lopcodes.c" />
-    <ClCompile Include="..\..\..\lua\src\loslib.c" />
-    <ClCompile Include="..\..\..\lua\src\lparser.c" />
-    <ClCompile Include="..\..\..\lua\src\lstate.c" />
-    <ClCompile Include="..\..\..\lua\src\lstring.c" />
-    <ClCompile Include="..\..\..\lua\src\lstrlib.c" />
-    <ClCompile Include="..\..\..\lua\src\ltable.c" />
-    <ClCompile Include="..\..\..\lua\src\ltablib.c" />
-    <ClCompile Include="..\..\..\lua\src\ltm.c" />
-    <ClCompile Include="..\..\..\lua\src\lundump.c" />
-    <ClCompile Include="..\..\..\lua\src\lvm.c" />
-    <ClCompile Include="..\..\..\lua\src\lzio.c" />
-    <ClCompile Include="..\..\..\lua\src\print.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lapi.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lauxlib.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lbaselib.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lcode.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\ldblib.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\ldebug.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\ldo.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\ldump.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lfunc.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lgc.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\linit.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\liolib.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\llex.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lmathlib.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lmem.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\loadlib.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lobject.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lopcodes.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\loslib.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lparser.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lstate.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lstring.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lstrlib.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\ltable.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\ltablib.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\ltm.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lundump.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lvm.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\lzio.c" />
+    <ClCompile Include="$(LUA_ROOT)\src\print.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\luadec\output.h" />
@@ -120,29 +122,29 @@
     <ClInclude Include="..\..\..\luadec\proto.h" />
     <ClInclude Include="..\..\..\luadec\StringBuffer.h" />
     <ClInclude Include="..\..\..\luadec\structs.h" />
-    <ClInclude Include="..\..\..\lua\src\lapi.h" />
-    <ClInclude Include="..\..\..\lua\src\lauxlib.h" />
-    <ClInclude Include="..\..\..\lua\src\lcode.h" />
-    <ClInclude Include="..\..\..\lua\src\ldebug.h" />
-    <ClInclude Include="..\..\..\lua\src\ldo.h" />
-    <ClInclude Include="..\..\..\lua\src\lfunc.h" />
-    <ClInclude Include="..\..\..\lua\src\lgc.h" />
-    <ClInclude Include="..\..\..\lua\src\llex.h" />
-    <ClInclude Include="..\..\..\lua\src\llimits.h" />
-    <ClInclude Include="..\..\..\lua\src\lmem.h" />
-    <ClInclude Include="..\..\..\lua\src\lobject.h" />
-    <ClInclude Include="..\..\..\lua\src\lopcodes.h" />
-    <ClInclude Include="..\..\..\lua\src\lparser.h" />
-    <ClInclude Include="..\..\..\lua\src\lstate.h" />
-    <ClInclude Include="..\..\..\lua\src\lstring.h" />
-    <ClInclude Include="..\..\..\lua\src\ltable.h" />
-    <ClInclude Include="..\..\..\lua\src\ltm.h" />
-    <ClInclude Include="..\..\..\lua\src\lua.h" />
-    <ClInclude Include="..\..\..\lua\src\luaconf.h" />
-    <ClInclude Include="..\..\..\lua\src\lualib.h" />
-    <ClInclude Include="..\..\..\lua\src\lundump.h" />
-    <ClInclude Include="..\..\..\lua\src\lvm.h" />
-    <ClInclude Include="..\..\..\lua\src\lzio.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lapi.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lauxlib.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lcode.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\ldebug.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\ldo.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lfunc.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lgc.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\llex.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\llimits.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lmem.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lobject.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lopcodes.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lparser.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lstate.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lstring.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\ltable.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\ltm.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lua.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\luaconf.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lualib.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lundump.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lvm.h" />
+    <ClInclude Include="$(LUA_ROOT)\src\lzio.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
