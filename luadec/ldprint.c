@@ -2352,12 +2352,12 @@ void luaU_decompileFunctions(const Proto* f, int dflag, int functions) {
 }
 
 #define CC(r) (ISK((r)) ? 'K' : 'R')
-#define CV(r) (!ISK((r)) ? r : (r-256))
+#define CV(r) (ISK((r)) ? INDEXK(r) : r)
 #define MAXCONSTSIZE 1024
 
 void luaU_disassemble(const Proto* fwork, int dflag, int functions, char* name) {
-	char tmp[MAXCONSTSIZE + 128];
-	char tmp2[MAXCONSTSIZE + 128];
+	char tmp[MAXCONSTSIZE + 128] = { 0 };
+	char tmp2[MAXCONSTSIZE + 128] = { 0 };
 	Proto* f = fwork;
 	int pc, l, l2, l3;
 	if (functions != 0) {
@@ -2691,7 +2691,7 @@ void luaU_disassemble(const Proto* fwork, int dflag, int functions, char* name) 
 			default:
 				break;
 		}
-		printf("%3d [-]: %-9s %-13s; %s\n", pc + 1, luaP_opnames[o], line, lend);
+		printf("%03d [-]: %-9s %-13s; %s\n", pc + 1, luaP_opnames[o], line, lend);
 	}
 	printf("\n\n");
 	if (f->sizep != 0) {
